@@ -47,6 +47,13 @@ jobs:
 
       - run: make release
 
+      - name: Upload generated flag table
+        uses: actions/upload-artifact@v5
+        with:
+          name: sg-flag-list
+          path: tweak/Sources/Shared/Flags/SGFlagList.m
+          if-no-files-found: error
+
       - uses: actions/upload-artifact@v5
         if: inputs.upload_method != 'filebin'
         with:
